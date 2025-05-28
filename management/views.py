@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Emp
 
 # Create your views here.
 def manage(request):
@@ -16,6 +17,20 @@ def add_emp(request):
         emp_department= request.POST.get("emp_department")
 
         #create models obj
+        e=Emp()
+        e.name=emp_name
+        e.email_id =emp_id
+        e.phone = emp_phone
+        e.address = emp_address
+        e.department = emp_department
+
+        if emp_working is None:
+            e.working =False
+        else:
+            e.working=True
+        
+        # save korbo
+        e.save()
 
 
         return redirect('/emp/manage')
