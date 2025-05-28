@@ -4,9 +4,12 @@ from .models import Emp
 
 # Create your views here.
 def manage(request):
-    return render(request, 'emp/home.html',{})
 
-def add_emp(request):
+    emps= Emp.objects.all()
+
+    return render(request, 'emp/home.html',{'emps':emps})
+
+def add_emp(request): 
     if(request.method=="POST"):
         # data feth
         emp_name= request.POST.get("emp_name")
@@ -40,3 +43,10 @@ def add_emp(request):
 
 def about(request):
     return render(request,'emp/about.html',{})
+
+def delete_emp(request, emp_id):
+    print(emp_id)
+    emp =Emp.objects.get(pk=emp_id)
+    emp.delete()
+
+    return redirect('/emp/manage')
