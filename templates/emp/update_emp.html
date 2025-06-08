@@ -76,7 +76,7 @@
   <div class="container">
     <div class="form-container">
       <h2>Update Employee</h2>
-      <form action="/emp/do-update/" method="POST">
+      <form action="/emp/do-update-emp/{{emp.id}}/" method="POST">
         {% csrf_token %}
 
         <div class="mb-3">
