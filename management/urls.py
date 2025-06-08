@@ -6,5 +6,7 @@ urlpatterns = [
     path('manage/',manage),
     path('add-emp/',add_emp),
     path('about/', about),
-    path('delete-emp/<int:emp_id>',delete_emp),
+    path('delete-emp/<int:emp_id>/',delete_emp),
+    path('update-emp/<int:emp_id>/',update_emp),
+    path('do-update-emp/', do_update),
 ]
