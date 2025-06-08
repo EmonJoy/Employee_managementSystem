@@ -21,5 +21,6 @@ from .views import *;
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('emp/',include('management.urls')),
-    path('home/',employee)
+    path('home/',employee),
+    path('', dashboard)
 ]

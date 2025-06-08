@@ -50,3 +50,12 @@ def delete_emp(request, emp_id):
     emp.delete()
 
     return redirect('/emp/manage')
+
+def update_emp(request, emp_id):
+    emp = Emp.objects.get(pk=emp_id)
+    return render(request, 'emp/update_emp.html',{
+        'emp':emp
+    })
+
+def do_update(request):
+    return redirect('emp/home.html')
